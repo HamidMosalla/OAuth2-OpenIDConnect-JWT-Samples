@@ -1,0 +1,22 @@
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.deps.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.dev.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.pdb
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.csproj.CoreCompileInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfoInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfo.cs
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.pdb
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.deps.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.dev.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\bin\Debug\netcoreapp2.0\Client.pdb
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.csproj.CoreCompileInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfoInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfo.cs
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.pdb

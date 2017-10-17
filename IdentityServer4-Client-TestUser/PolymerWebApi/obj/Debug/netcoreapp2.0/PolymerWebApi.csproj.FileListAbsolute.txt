@@ -1,0 +1,22 @@
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.deps.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.runtimeconfig.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.runtimeconfig.dev.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.csproj.CoreCompileInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.AssemblyInfoInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.AssemblyInfo.cs
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.pdb
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.pdb
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.deps.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.runtimeconfig.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.runtimeconfig.dev.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\bin\Debug\netcoreapp2.0\PolymerWebApi.pdb
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.AssemblyInfoInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.AssemblyInfo.cs
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\PolymerWebApi\obj\Debug\netcoreapp2.0\PolymerWebApi.pdb

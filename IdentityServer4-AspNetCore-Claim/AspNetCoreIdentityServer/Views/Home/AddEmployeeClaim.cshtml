@@ -1,0 +1,19 @@
+﻿@model IdentityResult
+@{
+    ViewData["Title"] = "Add Claim Result";
+}
+
+
+@if (Model.Succeeded)
+{
+    <h1>Claim Successfully added.</h1>
+}
+else
+{
+    foreach (var error in Model.Errors)
+    {
+        <span>@error.Code</span>
+        <span>@error.Description</span>
+        <br />
+    }
+}

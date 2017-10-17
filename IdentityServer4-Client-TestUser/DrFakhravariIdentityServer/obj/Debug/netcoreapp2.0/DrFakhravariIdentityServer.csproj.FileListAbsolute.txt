@@ -1,0 +1,22 @@
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.deps.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.runtimeconfig.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.runtimeconfig.dev.json
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.pdb
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.csproj.CoreCompileInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.AssemblyInfoInputs.cache
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.AssemblyInfo.cs
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.dll
+c:\users\user\documents\visual studio 2017\Projects\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.pdb
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.deps.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.runtimeconfig.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.runtimeconfig.dev.json
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\bin\Debug\netcoreapp2.0\DrFakhravariIdentityServer.pdb
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.csproj.CoreCompileInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.AssemblyInfoInputs.cache
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.AssemblyInfo.cs
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.dll
+C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\DrFakhravariIdentityServer\obj\Debug\netcoreapp2.0\DrFakhravariIdentityServer.pdb
