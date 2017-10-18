@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreJWT.Data;
 using AspNetCoreJWT.Models;
 using AspNetCoreJWT.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using TokenOptions = AspNetCoreJWT.Models.TokenOptions;
 
@@ -22,7 +17,6 @@ namespace AspNetCoreJWT
     {
         public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            // Set up configuration sources.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
@@ -32,7 +26,6 @@ namespace AspNetCoreJWT
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -46,9 +39,8 @@ namespace AspNetCoreJWT
                 option.Password.RequireLowercase = false;
                 option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequireUppercase = false;
-            })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders();
 
             services.AddAuthentication( /*o =>
                 {
@@ -64,8 +56,7 @@ namespace AspNetCoreJWT
                     {
                         ValidIssuer = Configuration["TokenOptions:Issuer"],
                         ValidAudience = Configuration["TokenOptions:Issuer"],
-                        IssuerSigningKey =
-                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenOptions:Key"])),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenOptions:Key"])),
                     };
                 });
 
