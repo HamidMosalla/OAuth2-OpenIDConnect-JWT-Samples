@@ -50,12 +50,12 @@ namespace AspNetCoreJWT
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication(o =>
+            services.AddAuthentication(/*o =>
                 {
                     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                     o.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
+                }*/   /*Uncomment this if you don't want to use JWT for all of you requrest*/)
                 .AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;

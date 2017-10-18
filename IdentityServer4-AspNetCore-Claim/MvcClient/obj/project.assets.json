@@ -12553,11 +12553,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamid\\Desktop\\AspNetCoreIdentityServer\\MvcClient\\MvcClient.csproj",
+      "projectUniqueName": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-AspNetCore-Claim\\MvcClient\\MvcClient.csproj",
       "projectName": "MvcClient",
-      "projectPath": "C:\\Users\\Hamid\\Desktop\\AspNetCoreIdentityServer\\MvcClient\\MvcClient.csproj",
+      "projectPath": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-AspNetCore-Claim\\MvcClient\\MvcClient.csproj",
       "packagesPath": "C:\\Users\\Hamid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamid\\Desktop\\AspNetCoreIdentityServer\\MvcClient\\obj\\",
+      "outputPath": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-AspNetCore-Claim\\MvcClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -22,3 +22,15 @@ C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\AspNetCoreIdentityServer\obj\Deb
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.AssemblyInfo.cs
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.dll
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.pdb
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\bin\Debug\netcoreapp2.0\AspNetCoreIdentityServer.deps.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\bin\Debug\netcoreapp2.0\AspNetCoreIdentityServer.runtimeconfig.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\bin\Debug\netcoreapp2.0\AspNetCoreIdentityServer.runtimeconfig.dev.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\bin\Debug\netcoreapp2.0\AspNetCoreIdentityServer.dll
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\bin\Debug\netcoreapp2.0\AspNetCoreIdentityServer.pdb
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.csproj.CoreCompileInputs.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.AssemblyInfoInputs.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.AssemblyInfo.cs
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.dll
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\AspNetCoreIdentityServer\obj\Debug\netcoreapp2.0\AspNetCoreIdentityServer.pdb

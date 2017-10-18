@@ -44,18 +44,17 @@ namespace AspNetCoreJWT.Controllers
 
             if (!result.Succeeded) return BadRequest("Could not create token");
 
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            };
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            userClaims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Email));
+            userClaims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptions.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(_tokenOptions.Issuer,
                 _tokenOptions.Issuer,
-                claims,
+                userClaims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
 

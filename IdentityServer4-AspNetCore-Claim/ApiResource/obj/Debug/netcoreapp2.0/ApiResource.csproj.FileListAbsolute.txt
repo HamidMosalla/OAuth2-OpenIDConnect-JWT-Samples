@@ -20,3 +20,14 @@ C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\ApiResource\obj\Debug\netcoreapp
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.AssemblyInfo.cs
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.dll
 C:\Users\Hamid\Desktop\AspNetCoreIdentityServer\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.pdb
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\bin\Debug\netcoreapp2.0\ApiResource.deps.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\bin\Debug\netcoreapp2.0\ApiResource.runtimeconfig.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\bin\Debug\netcoreapp2.0\ApiResource.runtimeconfig.dev.json
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\bin\Debug\netcoreapp2.0\ApiResource.dll
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\bin\Debug\netcoreapp2.0\ApiResource.pdb
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.csprojResolveAssemblyReference.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.csproj.CoreCompileInputs.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.AssemblyInfoInputs.cache
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.AssemblyInfo.cs
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.dll
+C:\Users\Hamid\Source\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-AspNetCore-Claim\ApiResource\obj\Debug\netcoreapp2.0\ApiResource.pdb
