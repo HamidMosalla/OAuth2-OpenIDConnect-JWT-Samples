@@ -12,7 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreJWT.Data;
 using AspNetCoreJWT.Models;
 using AspNetCoreJWT.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using TokenOptions = AspNetCoreJWT.Models.TokenOptions;
 
 namespace AspNetCoreJWT
 {
@@ -36,23 +38,39 @@ namespace AspNetCoreJWT
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(option =>
+                {
+                    option.Password.RequireDigit = false;
+                    option.Password.RequiredLength = 3;
+                    option.Password.RequiredUniqueChars = 0;
+                    option.Password.RequireLowercase = false;
+                    option.Password.RequireNonAlphanumeric = false;
+                    option.Password.RequireUppercase = false;
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication()
+            services.AddAuthentication(o =>
+                {
+                    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    o.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
                 .AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
+                    //cfg.Authority = "http://localhost:5000/";
+                    //cfg.Audience = "http://localhost:5001/";
 
                     cfg.TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidIssuer = Configuration["Tokens:Issuer"],
-                        ValidAudience = Configuration["Tokens:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
-                    };
+                        ValidIssuer = Configuration["TokenOptions:Issuer"],
+                        ValidAudience = Configuration["TokenOptions:Issuer"],
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenOptions:Key"])),
 
+                    };
                 });
 
             // Add application services.
@@ -62,7 +80,7 @@ namespace AspNetCoreJWT
 
             services.AddOptions();
 
-            services.Configure<Tokens>(Configuration.GetSection("Tokens"));
+            services.Configure<TokenOptions>(Configuration.GetSection("TokenOptions"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

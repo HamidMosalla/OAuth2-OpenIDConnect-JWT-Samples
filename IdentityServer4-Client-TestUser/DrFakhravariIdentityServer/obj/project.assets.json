@@ -12572,11 +12572,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamid\\Desktop\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer.csproj",
+      "projectUniqueName": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-Client-TestUser\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer.csproj",
       "projectName": "DrFakhravariIdentityServer",
-      "projectPath": "C:\\Users\\Hamid\\Desktop\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer.csproj",
+      "projectPath": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-Client-TestUser\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer.csproj",
       "packagesPath": "C:\\Users\\Hamid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamid\\Desktop\\DrFakhravariIdentityServer\\DrFakhravariIdentityServer\\obj\\",
+      "outputPath": "C:\\Users\\Hamid\\Source\\OAuth2-OpenIDConnect-JWT-Samples\\IdentityServer4-Client-TestUser\\DrFakhravariIdentityServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

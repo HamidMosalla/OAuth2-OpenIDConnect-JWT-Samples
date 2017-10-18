@@ -27,20 +27,19 @@ namespace AspNetCoreJWT.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
-        private readonly Tokens _tokens;
+        
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger,
-            IOptions<Tokens> tokens)
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
-            _tokens = tokens.Value;
+           
         }
 
         [TempData]
@@ -441,38 +440,6 @@ namespace AspNetCoreJWT.Controllers
         public IActionResult AccessDenied()
         {
             return View();
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        public async Task<IActionResult> GenerateToken([FromBody] LoginViewModel model)
-        {
-            if (!ModelState.IsValid) return BadRequest("Could not create token");
-
-            var user = await _userManager.FindByEmailAsync(model.Email);
-
-            if (user == null) return BadRequest("Could not create token");
-
-            var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-
-            if (!result.Succeeded) return BadRequest("Could not create token");
-
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokens.Key));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(_tokens.Issuer,
-                _tokens.Issuer,
-                claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: creds);
-
-            return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
         }
 
         #region Helpers

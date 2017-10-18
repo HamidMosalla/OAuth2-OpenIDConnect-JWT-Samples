@@ -15,11 +15,12 @@ namespace AspNetCoreJWT.Controllers
 {
     [Produces("application/json")]
     [Route("api/Product")]
+    [Authorize]
     public class ProductApiController : Controller
     {
         public JsonResult Get()
         {
-            return Json(new {Id = 1, Name = "Discovery Based Shampoo>!"});
+            return Json(new {Id = 1, Name = "Shampoo"});
         }
     }
 }
