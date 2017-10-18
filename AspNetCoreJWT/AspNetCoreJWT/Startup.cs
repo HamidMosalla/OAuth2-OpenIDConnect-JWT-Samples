@@ -39,37 +39,33 @@ namespace AspNetCoreJWT
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(option =>
-                {
-                    option.Password.RequireDigit = false;
-                    option.Password.RequiredLength = 3;
-                    option.Password.RequiredUniqueChars = 0;
-                    option.Password.RequireLowercase = false;
-                    option.Password.RequireNonAlphanumeric = false;
-                    option.Password.RequireUppercase = false;
-                })
+            {
+                option.Password.RequireDigit = false;
+                option.Password.RequiredLength = 3;
+                option.Password.RequiredUniqueChars = 0;
+                option.Password.RequireLowercase = false;
+                option.Password.RequireNonAlphanumeric = false;
+                option.Password.RequireUppercase = false;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication(/*o =>
+            services.AddAuthentication( /*o =>
                 {
                     o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                     o.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
-                }*/   /*Uncomment this if you don't want to use JWT for all of you requrest*/)
+                }*/ /*Uncomment this if you don't want to use JWT for all of your api*/)
                 .AddJwtBearer(cfg =>
                 {
                     cfg.RequireHttpsMetadata = false;
                     cfg.SaveToken = true;
-                    //cfg.Authority = "http://localhost:5000/";
-                    //cfg.Audience = "http://localhost:5001/";
-
                     cfg.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidIssuer = Configuration["TokenOptions:Issuer"],
                         ValidAudience = Configuration["TokenOptions:Issuer"],
                         IssuerSigningKey =
                             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenOptions:Key"])),
-
                     };
                 });
 
@@ -77,6 +73,8 @@ namespace AspNetCoreJWT
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")));
 
             services.AddOptions();
 

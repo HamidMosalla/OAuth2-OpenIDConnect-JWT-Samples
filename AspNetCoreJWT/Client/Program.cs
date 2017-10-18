@@ -11,7 +11,7 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var response = Task.Run(()=> MainAsync()).Result;
+            var response = Task.Run(() => MainAsync()).Result;
 
             Console.WriteLine(response);
 
@@ -24,19 +24,27 @@ namespace Client
             {
                 httpClient.BaseAddress = new Uri("http://localhost:5000");
 
-                var httpContent = new StringContent("{Email: \"mosalla@gmail.com\", Password: \"123654\", RememberMe: \"true\"}", Encoding.UTF8, "application/json");
-
-                var responseToken = await httpClient.PostAsync("/Token/Generate", httpContent);
-
-                var accessToken = await responseToken.Content.ReadAsStringAsync();
+                var accessToken = await GetAccessToken();
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-                var productResponse = await httpClient.GetAsync("/api/Product");
+                var response = await httpClient.GetAsync("/api/Product");
 
-                var product = await productResponse.Content.ReadAsStringAsync();
+                return $"Status Code: {response.StatusCode}\nContent: {await response.Content.ReadAsStringAsync()}";
+            }
+        }
 
-                return product;
+        public static async Task<string> GetAccessToken()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri("http://localhost:5000");
+
+                var httpContent = new StringContent("{Email: \"mosalla@gmail.com\", Password: \"123654\", RememberMe: \"true\"}", Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync("/Token/Generate", httpContent);
+
+                return await response.Content.ReadAsStringAsync();
             }
         }
     }
