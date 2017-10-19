@@ -6,14 +6,14 @@ namespace AspNetCoreJWT.Controllers
 {
     [Produces("application/json")]
     [Route("api/Product")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Founder")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Trusted")]
     public class ProductApiController : Controller
     {
-        public JsonResult Get()
+        public OkObjectResult Get()
         {
-            var products = new { Products = new[] { new { Id = 1, Name = "Shampoo" }, new { Id = 2, Name = "Panda Bearer" }, new { Id = 3, Name = "JWT Bearer" } } };
+            var products = new { Products = new[] { new { Id = 1, Name = "Normal Bear" }, new { Id = 2, Name = "Panda Bearer" }, new { Id = 3, Name = "JWT Bearer" } } };
 
-            return Json(products);
+            return Ok(products);
         }
     }
 }

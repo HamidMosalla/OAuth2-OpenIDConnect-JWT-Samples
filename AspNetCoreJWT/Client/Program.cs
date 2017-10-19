@@ -40,7 +40,7 @@ namespace Client
             {
                 httpClient.BaseAddress = new Uri("http://localhost:5000");
 
-                var httpContent = new StringContent("{Email: \"mosalla@gmail.com\", Password: \"123654\", RememberMe: \"true\"}", Encoding.UTF8, "application/json");
+                var httpContent = new StringContent("{Email: \"mosalla@gmail.com\", Password: \"123654\"}", Encoding.UTF8, "application/json");
 
                 var response = await httpClient.PostAsync("/Token/Generate", httpContent);
 

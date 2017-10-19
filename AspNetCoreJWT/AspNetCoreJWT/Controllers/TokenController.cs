@@ -49,9 +49,10 @@ namespace AspNetCoreJWT.Controllers
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptions.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_tokenOptions.Issuer,
-                _tokenOptions.Issuer,
-                userClaims,
+            var token = new JwtSecurityToken(
+                issuer: _tokenOptions.Issuer,
+                audience: _tokenOptions.Issuer,
+                claims: userClaims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds);
 

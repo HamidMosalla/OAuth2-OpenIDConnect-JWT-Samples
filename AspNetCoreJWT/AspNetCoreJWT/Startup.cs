@@ -65,7 +65,7 @@ namespace AspNetCoreJWT
 
             services.AddMvc();
 
-            services.AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")));
+            services.AddAuthorization(options => options.AddPolicy("Trusted", policy => policy.RequireClaim("Employee", "Mosalla")));
 
             services.AddOptions();
 
