@@ -1,11 +1,21 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspNetCoreJWT.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AspNetCoreJWT.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public HomeController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -23,6 +33,14 @@ namespace AspNetCoreJWT.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public async Task<IActionResult> AddEmployeeClaim()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var claim = new Claim("Employee", "Mosalla");
+            var addClaimResult = await _userManager.AddClaimAsync(user, claim);
+            return View(addClaimResult);
         }
 
         public IActionResult Error()
