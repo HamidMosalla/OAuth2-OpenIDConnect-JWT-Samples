@@ -1,5 +1,5 @@
 # Policy-based Authorization For Web API With Asp.Net Core 2
-These project are example of useage for JWT and Identityserver4 with policy-based authorization with claims for built with Asp.Net Core 2.
+These projects are example of useage for JWT and Identityserver4 with policy-based authorization and claims for securing Asp.Net Core 2 web API.
 
 # What do you need to run it?
 - Visual Studio 2017 Update 4
