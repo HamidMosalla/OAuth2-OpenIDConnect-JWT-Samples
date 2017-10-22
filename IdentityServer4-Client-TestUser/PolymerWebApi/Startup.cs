@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
-namespace PolymerWebApi
+namespace ApiResource
 {
     public class Startup
     {
@@ -32,7 +26,7 @@ namespace PolymerWebApi
                 {
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "PolymerApi";
+                    options.ApiName = "Api1";
                 });
 
             services.AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")));

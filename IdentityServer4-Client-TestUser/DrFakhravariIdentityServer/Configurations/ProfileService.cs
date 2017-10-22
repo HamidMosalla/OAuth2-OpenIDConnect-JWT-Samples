@@ -2,7 +2,7 @@
 using IdentityServer4.Models;
 using IdentityServer4.Services;
 
-namespace DrFakhravariIdentityServer.Configurations
+namespace IdentityServerAuthority.Configurations
 {
     public class ProfileService : IProfileService
     {

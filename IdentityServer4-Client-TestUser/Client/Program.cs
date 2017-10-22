@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
-using Newtonsoft.Json.Linq;
 
 namespace Client
 {
@@ -23,6 +20,23 @@ namespace Client
 
         public static async Task<string> MainAsyncWithClientSecretWithoutPolicy()
         {
+            async Task<string> GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy()
+            {
+                var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
+                var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "client1", "123654");
+                var accessToken = await tokenClient.RequestClientCredentialsAsync("Api1");
+
+                if (accessToken.IsError)
+                {
+                    Console.WriteLine(accessToken.Error);
+                    return accessToken.Error;
+                }
+
+                Console.WriteLine(accessToken.Json);
+
+                return accessToken.AccessToken;
+            }
+
             using (var client = new HttpClient())
             {
                 var accessToken = await GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy();
@@ -41,25 +55,26 @@ namespace Client
                 return content;
             }
         }
-        public static async Task<string> GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy()
-        {
-            var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
-            var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "DrFakhravari_Himself", "Resherper!");
-            var accessToken = await tokenClient.RequestClientCredentialsAsync("PolymerApi");
-
-            if (accessToken.IsError)
-            {
-                Console.WriteLine(accessToken.Error);
-                return accessToken.Error;
-            }
-
-            Console.WriteLine(accessToken.Json);
-
-            return accessToken.AccessToken;
-        }
-
         public static async Task<string> MainAsyncWithUserPasswordWithPolicy()
         {
+            async Task<string> GetAccessTokenForMainAsyncWithUserPasswordWithPolicy()
+            {
+                var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
+                // request token
+                var tokenClient = new TokenClient(discoveryResponse.TokenEndpoint, "ro.client1", "123654");
+                var accessToken = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "Api1");
+
+                if (accessToken.IsError)
+                {
+                    Console.WriteLine(accessToken.Error);
+                    return accessToken.Error;
+                }
+
+                Console.WriteLine(accessToken.Json);
+
+                return accessToken.AccessToken;
+            }
+
             using (var client = new HttpClient())
             {
                 var accessToken = await GetAccessTokenForMainAsyncWithUserPasswordWithPolicy();
@@ -78,23 +93,5 @@ namespace Client
                 return content;
             }
         }
-        public static async Task<string> GetAccessTokenForMainAsyncWithUserPasswordWithPolicy()
-        {
-            var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
-            // request token
-            var tokenClient = new TokenClient(discoveryResponse.TokenEndpoint, "ro.DrFakhravari_Himself", "Resherper!");
-            var accessToken = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "PolymerApi");
-
-            if (accessToken.IsError)
-            {
-                Console.WriteLine(accessToken.Error);
-                return accessToken.Error;
-            }
-
-            Console.WriteLine(accessToken.Json);
-
-            return accessToken.AccessToken;
-        }
-
     }
 }

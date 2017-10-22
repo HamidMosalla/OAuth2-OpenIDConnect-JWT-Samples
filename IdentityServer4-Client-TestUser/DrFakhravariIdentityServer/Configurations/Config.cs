@@ -3,7 +3,7 @@ using System.Security.Claims;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 
-namespace DrFakhravariIdentityServer.Configurations
+namespace IdentityServerAuthority.Configurations
 {
     public class Config
     {
@@ -11,7 +11,7 @@ namespace DrFakhravariIdentityServer.Configurations
         {
             return new List<ApiResource>
             {
-                new ApiResource("PolymerApi", "Dr Fakhravari Api")
+                new ApiResource("Api1", "Warehouse Api")
             };
         }
 
@@ -21,7 +21,7 @@ namespace DrFakhravariIdentityServer.Configurations
             {
                 new Client
                 {
-                    ClientId = "DrFakhravari_Himself",
+                    ClientId = "client1",
 
                     // no interactive user, use the clientid/secret for authentication
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -29,22 +29,22 @@ namespace DrFakhravariIdentityServer.Configurations
                     // secret for authentication
                     ClientSecrets =
                     {
-                        new Secret("Resherper!".Sha256())
+                        new Secret("123654".Sha256())
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = {"PolymerApi"}
+                    AllowedScopes = {"Api1"}
                 },
                 new Client
                 {
-                    ClientId = "ro.DrFakhravari_Himself",
+                    ClientId = "ro.client1",
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 
                     ClientSecrets =
                     {
-                        new Secret("Resherper!".Sha256())
+                        new Secret("123654".Sha256())
                     },
-                    AllowedScopes = {"PolymerApi"}
+                    AllowedScopes = {"Api1"}
                 }
             };
         }
