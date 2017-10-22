@@ -24,7 +24,7 @@ namespace DrFakhravariIdentityServer.IdentityServerConfiguration
                     ClientId = "DrFakhravari_Himself",
 
                     // no interactive user, use the clientid/secret for authentication
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ClientCredentials, 
 
                     // secret for authentication
                     ClientSecrets =

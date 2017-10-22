@@ -20,3 +20,14 @@ C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0
 C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfo.cs
 C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.dll
 C:\Users\Hamid\Desktop\DrFakhravariIdentityServer\Client\obj\Debug\netcoreapp2.0\Client.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\bin\Debug\netcoreapp2.0\Client.deps.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\bin\Debug\netcoreapp2.0\Client.runtimeconfig.dev.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\bin\Debug\netcoreapp2.0\Client.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\bin\Debug\netcoreapp2.0\Client.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.AssemblyInfo.cs
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\OAuth2-OpenIDConnect-JWT-Samples\IdentityServer4-Client-TestUser\Client\obj\Debug\netcoreapp2.0\Client.pdb
