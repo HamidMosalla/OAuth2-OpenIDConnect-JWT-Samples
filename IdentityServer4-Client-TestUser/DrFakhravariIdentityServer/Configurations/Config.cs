@@ -3,7 +3,7 @@ using System.Security.Claims;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 
-namespace DrFakhravariIdentityServer.IdentityServerConfiguration
+namespace DrFakhravariIdentityServer.Configurations
 {
     public class Config
     {
