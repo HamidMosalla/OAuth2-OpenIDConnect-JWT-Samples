@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrFakhravariIdentityServer", "DrFakhravariIdentityServer\DrFakhravariIdentityServer.csproj", "{3CB37BEC-FBF4-47B8-A303-200F37068AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerAuthority", "DrFakhravariIdentityServer\IdentityServerAuthority.csproj", "{3CB37BEC-FBF4-47B8-A303-200F37068AA9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolymerWebApi", "PolymerWebApi\PolymerWebApi.csproj", "{7428CE7D-72CC-43C9-B1F9-06A2A235EBE7}"
 EndProject

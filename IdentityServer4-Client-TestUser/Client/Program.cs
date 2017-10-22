@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Newtonsoft.Json.Linq;
@@ -10,15 +12,36 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var program = new Program();
+            var withoutPolicyReponse = Task.Run(MainAsyncWithClientSecretWithoutPolicy).Result;
+            var withPolicyReponse = Task.Run(MainAsyncWithUserPasswordWithPolicy).Result;
 
-            //program.GetResourceWithClientSecret();
-            program.GetResouceWithUserPassword();
+            Console.WriteLine(withoutPolicyReponse);
+            Console.WriteLine(withPolicyReponse);
 
             Console.ReadLine();
         }
 
-        public async Task GetResourceWithClientSecret()
+        public static async Task<string> MainAsyncWithClientSecretWithoutPolicy()
+        {
+            using (var client = new HttpClient())
+            {
+                var accessToken = await GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy();
+
+                client.SetBearerToken(accessToken);
+
+                var response = await client.GetAsync("http://localhost:5001/api/ApiResourceWithoutPolicy");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return response.StatusCode.ToString();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                return content;
+            }
+        }
+        public static async Task<string> GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy()
         {
             var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
             var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "DrFakhravari_Himself", "Resherper!");
@@ -27,32 +50,35 @@ namespace Client
             if (accessToken.IsError)
             {
                 Console.WriteLine(accessToken.Error);
-                return;
+                return accessToken.Error;
             }
 
             Console.WriteLine(accessToken.Json);
 
-            Console.Clear();
-
-            using (var client = new HttpClient())
-            {
-                client.SetBearerToken(accessToken.AccessToken);
-
-                var response = await client.GetAsync("http://localhost:5001/api/identity");
-                if (!response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine(response.StatusCode);
-                }
-                else
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(content);
-                    Console.WriteLine(JArray.Parse(content));
-                }
-            }
+            return accessToken.AccessToken;
         }
 
-        public async Task GetResouceWithUserPassword()
+        public static async Task<string> MainAsyncWithUserPasswordWithPolicy()
+        {
+            using (var client = new HttpClient())
+            {
+                var accessToken = await GetAccessTokenForMainAsyncWithUserPasswordWithPolicy();
+
+                client.SetBearerToken(accessToken);
+
+                var response = await client.GetAsync("http://localhost:5001/api/ApiResourceWithPolicy");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return response.StatusCode.ToString();
+                }
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                return content;
+            }
+        }
+        public static async Task<string> GetAccessTokenForMainAsyncWithUserPasswordWithPolicy()
         {
             var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
             // request token
@@ -62,31 +88,13 @@ namespace Client
             if (accessToken.IsError)
             {
                 Console.WriteLine(accessToken.Error);
-                return;
+                return accessToken.Error;
             }
 
             Console.WriteLine(accessToken.Json);
-            Console.WriteLine("\n\n");
 
-            Console.Clear();
-
-            using (var client = new HttpClient())
-            {
-                client.SetBearerToken(accessToken.AccessToken);
-
-                var response = await client.GetAsync("http://localhost:5001/api/identity");
-                if (!response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine(response.StatusCode);
-                }
-                else
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(content);
-                    Console.WriteLine(JArray.Parse(content));
-                }
-            }
-
+            return accessToken.AccessToken;
         }
+
     }
 }
