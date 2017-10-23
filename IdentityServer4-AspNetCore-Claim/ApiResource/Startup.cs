@@ -32,7 +32,7 @@ namespace ApiResource
                 {
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "PolymerApi";
+                    options.ApiName = "Api1";
                 });
         }
 

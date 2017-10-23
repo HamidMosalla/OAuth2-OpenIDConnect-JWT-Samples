@@ -11,7 +11,7 @@ namespace ApiResource.Controllers
         [Route("api/resource-with-policy")]
         public IActionResult ResourceWithPolicy()
         {
-            return new JsonResult(new { FirstName = "Dr", LastName = "Fakhravari" });
+            return new JsonResult(new { ApiName = "Api1", AuthorizationType = "With Policy" });
         }
 
         [HttpGet]
@@ -19,7 +19,7 @@ namespace ApiResource.Controllers
         [Route("api/resource-without-policy")]
         public IActionResult ResourceWithoutPolicy()
         {
-            return new JsonResult(new { FirstName = "Dr", LastName = "Fakhravari" });
+            return new JsonResult(new { ApiName = "Api1", AuthorizationType = "Without Policy" });
         }
     }
 }

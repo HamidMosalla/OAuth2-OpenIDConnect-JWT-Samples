@@ -46,7 +46,7 @@ namespace MvcClient
                     options.SaveTokens = true;
                     options.GetClaimsFromUserInfoEndpoint = true;
 
-                    options.Scope.Add("PolymerApi");
+                    options.Scope.Add("Api1");
                     options.Scope.Add("offline_access");
                 });
 

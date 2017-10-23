@@ -10,7 +10,7 @@ namespace AspNetCoreIdentityServer.Configurations
         {
             return new List<ApiResource>
             {
-                new ApiResource("PolymerApi", "Dr Fakhravari Api")
+                new ApiResource("Api1", "Protected Api")
             };
         }
 
@@ -47,7 +47,7 @@ namespace AspNetCoreIdentityServer.Configurations
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "PolymerApi"
+                        "Api1"
                     },
                     AllowOfflineAccess = true,
                     AlwaysSendClientClaims = true,

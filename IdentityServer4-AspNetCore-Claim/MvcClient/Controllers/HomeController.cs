@@ -48,7 +48,7 @@ namespace MvcClient.Controllers
         public async Task<IActionResult> CallApiUsingClientCredentials()
         {
             var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
-            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("PolymerApi");
+            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("Api1");
 
             var client = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
