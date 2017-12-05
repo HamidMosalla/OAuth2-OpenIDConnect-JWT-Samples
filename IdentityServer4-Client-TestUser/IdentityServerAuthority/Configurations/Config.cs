@@ -61,7 +61,7 @@ namespace IdentityServerAuthority.Configurations
                     Claims = new[]
                     {
                         new Claim("Employee", "Mosalla"),
-                        new Claim("website", "https://alice.com")
+                        new Claim("website", "http://hamidmosalla.com")
                     }
                 },
                 new TestUser
