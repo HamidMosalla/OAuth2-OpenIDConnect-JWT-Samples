@@ -62,7 +62,7 @@ namespace Client
                 var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
                 // request token
                 var tokenClient = new TokenClient(discoveryResponse.TokenEndpoint, "ro.client1", "123654");
-                var accessToken = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "password", "Api1");
+                var accessToken = await tokenClient.RequestResourceOwnerPasswordAsync("mosalla", "password", "Api1");
 
                 if (accessToken.IsError)
                 {

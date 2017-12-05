@@ -56,7 +56,7 @@ namespace IdentityServerAuthority.Configurations
                 new TestUser
                 {
                     SubjectId = "1",
-                    Username = "alice",
+                    Username = "mosalla",
                     Password = "password",
                     Claims = new[]
                     {
