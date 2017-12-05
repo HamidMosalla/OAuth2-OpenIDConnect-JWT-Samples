@@ -15,8 +15,6 @@ namespace IdentityServerAuthority
                     .AddInMemoryClients(Config.GetClients())
                     .AddTestUsers(Config.GetUsers())
                     .AddProfileService<ProfileService>();
-
-            services.AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
