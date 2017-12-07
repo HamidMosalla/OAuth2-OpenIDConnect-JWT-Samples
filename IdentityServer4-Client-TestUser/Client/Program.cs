@@ -9,12 +9,12 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            //var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
-            //var requestWithClientCredetials = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
+            var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
+            var requestWithClientCredetials = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
             var requestWithResourceOwnerPassword = Task.Run(RequestWithResourceOwnerPasswordWithPolicy).Result;
 
-            //Console.WriteLine($"{nameof(requestWithoutPolicyResponse)} : {requestWithoutPolicyResponse}");
-            //Console.WriteLine($"{nameof(requestWithClientCredetials)} : {requestWithClientCredetials}");
+            Console.WriteLine($"{nameof(requestWithoutPolicyResponse)} : {requestWithoutPolicyResponse}");
+            Console.WriteLine($"{nameof(requestWithClientCredetials)} : {requestWithClientCredetials}");
             Console.WriteLine($"{nameof(requestWithResourceOwnerPassword)} : {requestWithResourceOwnerPassword}");
 
             Console.ReadLine();
