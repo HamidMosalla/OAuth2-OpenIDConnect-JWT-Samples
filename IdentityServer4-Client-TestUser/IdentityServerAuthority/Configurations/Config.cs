@@ -33,7 +33,13 @@ namespace IdentityServerAuthority.Configurations
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = {"Api1"}
+                    AllowedScopes = {"Api1"},
+                    Claims = new[]
+                    {
+                        new Claim("Employee", "Mosalla"),
+                        new Claim("website", "http://hamidmosalla.com")
+                    },
+                    ClientClaimsPrefix = ""
                 },
                 new Client
                 {
