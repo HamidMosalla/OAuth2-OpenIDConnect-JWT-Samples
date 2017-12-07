@@ -22,7 +22,7 @@ namespace Client
 
         public static async Task<string> RequestWithClientCredentialsWithoutPolicy()
         {
-            async Task<string> GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy()
+            async Task<string> GetAccessToken()
             {
                 var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
                 var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "client1", "123654");
@@ -41,7 +41,7 @@ namespace Client
 
             using (var client = new HttpClient())
             {
-                var accessToken = await GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy();
+                var accessToken = await GetAccessToken();
 
                 client.SetBearerToken(accessToken);
 
