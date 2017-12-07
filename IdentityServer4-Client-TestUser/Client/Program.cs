@@ -9,13 +9,13 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
-            var requestWithPolicyResponse = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
-            var requestWithPasswordWithPolicyResponse = Task.Run(RequestWithResourceOwnerPasswordWithPolicy).Result;
+            //var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
+            //var requestWithClientCredetials = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
+            var requestWithResourceOwnerPassword = Task.Run(RequestWithResourceOwnerPasswordWithPolicy).Result;
 
-            Console.WriteLine($"{nameof(requestWithoutPolicyResponse)} : {requestWithoutPolicyResponse}");
-            Console.WriteLine($"{nameof(requestWithPolicyResponse)} : {requestWithPolicyResponse}");
-            Console.WriteLine($"{nameof(requestWithPasswordWithPolicyResponse)} : {requestWithPasswordWithPolicyResponse}");
+            //Console.WriteLine($"{nameof(requestWithoutPolicyResponse)} : {requestWithoutPolicyResponse}");
+            //Console.WriteLine($"{nameof(requestWithClientCredetials)} : {requestWithClientCredetials}");
+            Console.WriteLine($"{nameof(requestWithResourceOwnerPassword)} : {requestWithResourceOwnerPassword}");
 
             Console.ReadLine();
         }
@@ -60,7 +60,7 @@ namespace Client
 
         public static async Task<string> RequestWithClientCredentialsWithPolicy()
         {
-            async Task<string> GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy()
+            async Task<string> GetAccessToken()
             {
                 var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
                 var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "client1", "123654");
@@ -79,7 +79,7 @@ namespace Client
 
             using (var client = new HttpClient())
             {
-                var accessToken = await GetAccessTokenForMainAsyncWithClientSecretWithoutPolicy();
+                var accessToken = await GetAccessToken();
 
                 client.SetBearerToken(accessToken);
 
@@ -98,7 +98,7 @@ namespace Client
 
         public static async Task<string> RequestWithResourceOwnerPasswordWithPolicy()
         {
-            async Task<string> GetAccessTokenForMainAsyncWithUserPasswordWithPolicy()
+            async Task<string> GetAccessToken()
             {
                 var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
                 // request token
@@ -118,7 +118,7 @@ namespace Client
 
             using (var client = new HttpClient())
             {
-                var accessToken = await GetAccessTokenForMainAsyncWithUserPasswordWithPolicy();
+                var accessToken = await GetAccessToken();
 
                 client.SetBearerToken(accessToken);
 
