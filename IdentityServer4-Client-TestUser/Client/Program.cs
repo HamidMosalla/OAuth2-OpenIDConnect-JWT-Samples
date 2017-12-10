@@ -9,6 +9,10 @@ namespace Client
     {
         static void Main(string[] args)
         {
+            /*
+             More info: http://hamidmosalla.com/2017/10/19/policy-based-authorization-using-asp-net-core-2-and-json-web-token-jwt/
+             */
+
             var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
             var requestWithClientCredetials = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
             var requestWithResourceOwnerPassword = Task.Run(RequestWithResourceOwnerPasswordWithPolicy).Result;
