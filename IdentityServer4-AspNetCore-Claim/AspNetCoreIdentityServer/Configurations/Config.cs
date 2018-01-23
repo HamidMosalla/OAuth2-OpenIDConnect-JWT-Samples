@@ -52,6 +52,32 @@ namespace AspNetCoreIdentityServer.Configurations
                     AllowOfflineAccess = true,
                     AlwaysSendClientClaims = true,
                     AlwaysIncludeUserClaimsInIdToken = true
+                },
+                new Client
+                {
+                    ClientId = "mvc2",
+                    ClientName = "MVC Client",
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+
+                    RequireConsent = false,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret2".Sha256())
+                    },
+
+                    RedirectUris = {"http://localhost:5003/signin-oidc"},
+                    PostLogoutRedirectUris = {"http://localhost:5003/signout-callback-oidc"},
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "Api1"
+                    },
+                    AllowOfflineAccess = true,
+                    AlwaysSendClientClaims = true,
+                    AlwaysIncludeUserClaimsInIdToken = true
                 }
             };
         }

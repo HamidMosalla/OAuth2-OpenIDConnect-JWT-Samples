@@ -1,0 +1,1 @@
+﻿More info: http://hamidmosalla.com/2017/12/07/policy-based-authorization-using-asp-net-core-2-identityserver4/
