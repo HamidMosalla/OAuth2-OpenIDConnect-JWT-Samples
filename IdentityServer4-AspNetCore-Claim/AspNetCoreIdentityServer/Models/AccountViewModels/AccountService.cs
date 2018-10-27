@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreIdentityServer.Models.AccountViewModels;
 
 namespace IdentityServer4.Quickstart.UI
 {
