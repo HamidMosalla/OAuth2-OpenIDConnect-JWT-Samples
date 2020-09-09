@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreJWT.Data;
 using AspNetCoreJWT.Models;
 using AspNetCoreJWT.Services;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using TokenOptions = AspNetCoreJWT.Models.TokenOptions;
 
@@ -16,7 +18,7 @@ namespace AspNetCoreJWT
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -74,7 +76,7 @@ namespace AspNetCoreJWT
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -93,37 +95,39 @@ namespace AspNetCoreJWT
 
             app.UseAuthentication();
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapControllerRoute(name: "default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
 
         private static void CreateDatabaseAndAddUser(IApplicationBuilder app)
         {
-            using (var scope = app.ApplicationServices.CreateScope())
+            using var scope = app.ApplicationServices.CreateScope();
+            var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+            context.Database.Migrate();
+
+            if (context.Users.Any()) return;
+
+            var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+
+            var user = new ApplicationUser
             {
-                var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+                UserName = "mosalla@gmail.com",
+                Email = "mosalla@gmail.com",
+                EmailConfirmed = true,
+            };
 
-                var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+            userManager.CreateAsync(user, "123654").GetAwaiter().GetResult();
 
-                context.Database.Migrate();
+            var claim = new Claim("Employee", "Mosalla");
 
-                var user = new ApplicationUser
-                {
-                    UserName = "mosalla@gmail.com",
-                    Email = "mosalla@gmail.com",
-                    EmailConfirmed = true,
-                };
-
-                userManager.CreateAsync(user, "123654").GetAwaiter().GetResult();
-
-                var claim = new Claim("Employee", "Mosalla");
-
-                userManager.AddClaimAsync(user, claim).GetAwaiter().GetResult();
-            }
+            userManager.AddClaimAsync(user, claim).GetAwaiter().GetResult();
         }
     }
 }

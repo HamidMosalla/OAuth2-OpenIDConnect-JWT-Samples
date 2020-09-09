@@ -29,7 +29,7 @@ namespace AspNetCoreJWT.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Generate([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Generate([FromBody]LoginViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest("Could not create token");
 
