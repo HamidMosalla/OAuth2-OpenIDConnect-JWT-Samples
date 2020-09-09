@@ -9,16 +9,7 @@ namespace Client
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            var response = Task.Run(() => MainAsync()).Result;
-
-            Console.WriteLine(response);
-
-            Console.ReadLine();
-        }
-
-        public static async Task<string> MainAsync()
+        static async Task Main(string[] args)
         {
             using (var httpClient = new HttpClient())
             {
@@ -30,8 +21,12 @@ namespace Client
 
                 var response = await httpClient.GetAsync("/api/Product");
 
-                return $"Status Code: {response.StatusCode}\nContent: {await response.Content.ReadAsStringAsync()}";
+                var formattedResponse = $"Status Code: {response.StatusCode}\nContent: {await response.Content.ReadAsStringAsync()}";
+
+                Console.WriteLine(formattedResponse);
             }
+
+            Console.ReadLine();
         }
 
         public static async Task<string> GetAccessToken()

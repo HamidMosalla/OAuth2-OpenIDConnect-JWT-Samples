@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Claims;
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -86,6 +87,8 @@ namespace AspNetCoreJWT
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            CreateDatabaseAndAddUser(app);
+
             app.UseStaticFiles();
 
             app.UseAuthentication();
@@ -96,6 +99,31 @@ namespace AspNetCoreJWT
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static void CreateDatabaseAndAddUser(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+                var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+
+                context.Database.Migrate();
+
+                var user = new ApplicationUser
+                {
+                    UserName = "mosalla@gmail.com",
+                    Email = "mosalla@gmail.com",
+                    EmailConfirmed = true,
+                };
+
+                userManager.CreateAsync(user, "123654").GetAwaiter().GetResult();
+
+                var claim = new Claim("Employee", "Mosalla");
+
+                userManager.AddClaimAsync(user, claim).GetAwaiter().GetResult();
+            }
         }
     }
 }

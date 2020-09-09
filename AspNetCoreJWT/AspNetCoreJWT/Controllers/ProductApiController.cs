@@ -11,7 +11,15 @@ namespace AspNetCoreJWT.Controllers
     {
         public OkObjectResult Get()
         {
-            var products = new { Products = new[] { new { Id = 1, Name = "Normal Bear" }, new { Id = 2, Name = "Panda Bearer" }, new { Id = 3, Name = "JWT Bearer" } } };
+            var products = new
+            {
+                Products = new[]
+                {
+                    new {Id = 1, Name = "Normal Bear"}, 
+                    new {Id = 2, Name = "Panda Bearer"},
+                    new {Id = 3, Name = "JWT Bearer"}
+                }
+            };
 
             return Ok(products);
         }
