@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityServer", "AspNetCoreIdentityServer\AspNetCoreIdentityServer.csproj", "{BA3B956B-D51C-485E-A80B-0D6623975DFA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiResource", "ApiResource\ApiResource.csproj", "{DBA87F35-EC86-459A-8A8D-74427F61A9DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "MvcClient\MvcClient.csproj", "{4AF34743-BA5A-4396-9AE8-8E3717522560}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcClient2", "MvcClient2\MvcClient2.csproj", "{C60B8205-772D-43A1-9A12-9B9121F36BAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{4AF34743-BA5A-4396-9AE8-8E3717522560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF34743-BA5A-4396-9AE8-8E3717522560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF34743-BA5A-4396-9AE8-8E3717522560}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C60B8205-772D-43A1-9A12-9B9121F36BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C60B8205-772D-43A1-9A12-9B9121F36BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C60B8205-772D-43A1-9A12-9B9121F36BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C60B8205-772D-43A1-9A12-9B9121F36BAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
