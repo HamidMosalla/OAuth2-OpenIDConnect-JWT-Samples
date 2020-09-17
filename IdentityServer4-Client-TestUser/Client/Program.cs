@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using IdentityModel;
 using IdentityModel.Client;
 
 namespace Client
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             /*
-             More info: http://hamidmosalla.com/2017/10/19/policy-based-authorization-using-asp-net-core-2-and-json-web-token-jwt/
-             */
+                More info: http://hamidmosalla.com/2017/10/19/policy-based-authorization-using-asp-net-core-2-and-json-web-token-jwt/
+            */
 
-            var requestWithoutPolicyResponse = Task.Run(RequestWithClientCredentialsWithoutPolicy).Result;
-            var requestWithClientCredetials = Task.Run(RequestWithClientCredentialsWithPolicy).Result;
-            var requestWithResourceOwnerPassword = Task.Run(RequestWithResourceOwnerPasswordWithPolicy).Result;
+            var requestWithoutPolicyResponse = await RequestWithClientCredentialsWithoutPolicy();
+            var requestWithClientCredetials = await RequestWithClientCredentialsWithPolicy();
+            var requestWithResourceOwnerPassword = await RequestWithResourceOwnerPasswordWithPolicy();
 
             Console.WriteLine($"{nameof(requestWithoutPolicyResponse)} : {requestWithoutPolicyResponse}");
             Console.WriteLine($"{nameof(requestWithClientCredetials)} : {requestWithClientCredetials}");
@@ -24,25 +25,63 @@ namespace Client
             Console.ReadLine();
         }
 
-        public static async Task<string> RequestWithClientCredentialsWithoutPolicy()
+        private static async Task<string> GetAccessToken()
         {
-            async Task<string> GetAccessToken()
+            var httpClient = new HttpClient();
+
+            var openIdConnectEndPoint = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5000");
+
+            var accessToken = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
-                var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
-                var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "client1", "123654");
-                var accessToken = await tokenClient.RequestClientCredentialsAsync("Api1");
+                Address = openIdConnectEndPoint.TokenEndpoint,
+                ClientId = "client1",
+                ClientSecret = "123654",
+                Scope = "api1.read",
+            });
 
-                if (accessToken.IsError)
-                {
-                    Console.WriteLine(accessToken.Error);
-                    return accessToken.Error;
-                }
-
-                Console.WriteLine(accessToken.Json);
-
-                return accessToken.AccessToken;
+            if (accessToken.IsError)
+            {
+                Console.WriteLine(accessToken.Error);
+                return accessToken.Error;
             }
 
+            Console.WriteLine(accessToken.Json);
+
+            return accessToken.AccessToken;
+        }
+
+        private static async Task<string> GetAccessTokenPasswordTokenRequest()
+        {
+            var httpClient = new HttpClient();
+
+            var openIdConnectEndPoint = await httpClient.GetDiscoveryDocumentAsync("http://localhost:5000");
+
+            PasswordTokenRequest passwordTokenRequest = new PasswordTokenRequest()
+            {
+                Address = openIdConnectEndPoint.TokenEndpoint,
+                ClientId = "ro.client1",
+                ClientSecret = "123654",
+                GrantType = OidcConstants.GrantTypes.AuthorizationCode,
+                Scope = "Api1",
+                UserName = "mosalla",
+                Password = "password"
+            };
+
+            var accessToken = await httpClient.RequestPasswordTokenAsync(passwordTokenRequest);
+
+            if (accessToken.IsError)
+            {
+                Console.WriteLine(accessToken.Error);
+                return accessToken.Error;
+            }
+
+            Console.WriteLine(accessToken.Json);
+
+            return accessToken.AccessToken;
+        }
+
+        public static async Task<string> RequestWithClientCredentialsWithoutPolicy()
+        {
             using (var client = new HttpClient())
             {
                 var accessToken = await GetAccessToken();
@@ -64,23 +103,6 @@ namespace Client
 
         public static async Task<string> RequestWithClientCredentialsWithPolicy()
         {
-            async Task<string> GetAccessToken()
-            {
-                var openIdConnectEndPoint = await DiscoveryClient.GetAsync("http://localhost:5000");
-                var tokenClient = new TokenClient(openIdConnectEndPoint.TokenEndpoint, "client1", "123654");
-                var accessToken = await tokenClient.RequestClientCredentialsAsync("Api1");
-
-                if (accessToken.IsError)
-                {
-                    Console.WriteLine(accessToken.Error);
-                    return accessToken.Error;
-                }
-
-                Console.WriteLine(accessToken.Json);
-
-                return accessToken.AccessToken;
-            }
-
             using (var client = new HttpClient())
             {
                 var accessToken = await GetAccessToken();
@@ -102,27 +124,9 @@ namespace Client
 
         public static async Task<string> RequestWithResourceOwnerPasswordWithPolicy()
         {
-            async Task<string> GetAccessToken()
-            {
-                var discoveryResponse = await DiscoveryClient.GetAsync("http://localhost:5000");
-                // request token
-                var tokenClient = new TokenClient(discoveryResponse.TokenEndpoint, "ro.client1", "123654");
-                var accessToken = await tokenClient.RequestResourceOwnerPasswordAsync("mosalla", "password", "Api1");
-
-                if (accessToken.IsError)
-                {
-                    Console.WriteLine(accessToken.Error);
-                    return accessToken.Error;
-                }
-
-                Console.WriteLine(accessToken.Json);
-
-                return accessToken.AccessToken;
-            }
-
             using (var client = new HttpClient())
             {
-                var accessToken = await GetAccessToken();
+                var accessToken = await GetAccessTokenPasswordTokenRequest();
 
                 client.SetBearerToken(accessToken);
 

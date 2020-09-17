@@ -19,6 +19,10 @@ namespace AspNetCoreIdentityServer
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(log =>
+                {
+                    log.AddConsole();
+                })
                 .UseStartup<Startup>()
                 .Build();
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
+using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 
@@ -12,6 +13,23 @@ namespace IdentityServerAuthority.Configurations
             return new List<ApiResource>
             {
                 new ApiResource("Api1", "Warehouse Api")
+            };
+        }
+
+        public static IEnumerable<ApiScope> GetApiScopes()
+        {
+            return new List<ApiScope>
+            {
+                new ApiScope("api1.read", "Read Access to API #1"),
+                new ApiScope("api1.write", "Write Access to API #1")
+            };
+        }
+
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId()
             };
         }
 
@@ -33,13 +51,21 @@ namespace IdentityServerAuthority.Configurations
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = {"Api1"},
-                    Claims = new[]
+                    AllowedScopes = new List<string>
                     {
-                        new Claim("Employee", "Mosalla"),
-                        new Claim("website", "http://hamidmosalla.com")
+                        "api1.read",
+                        "api1.write",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email
                     },
-                    ClientClaimsPrefix = ""
+                    Claims = new List<ClientClaim>
+                    {
+                        new ClientClaim("Employee", "Mosalla"),
+                        new ClientClaim("website", "http://hamidmosalla.com")
+                    },
+                    RequirePkce = true,
+                    AllowPlainTextPkce = true
                 },
                 new Client
                 {

@@ -40,19 +40,31 @@ namespace MvcClient.Controllers
 
             var client = new HttpClient();
             client.SetBearerToken(accessToken);
-            var content = await client.GetStringAsync("http://localhost:5001/api/resource-with-policy");
+            // ApiResource
+            var content = await client.GetStringAsync("https://localhost:44383/api/resource-with-policy");
 
             return View("Json", content);
         }
 
         public async Task<IActionResult> CallApiUsingClientCredentials()
         {
-            var tokenClient = new TokenClient("http://localhost:5000/connect/token", "mvc", "secret");
-            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("Api1");
+            // AspNetCoreIdentityServer
+            var httpClient = new HttpClient();
+
+            var openIdConnectEndPoint = await httpClient.GetDiscoveryDocumentAsync("https://localhost:44384");
+
+            var accessToken = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            {
+                Address = openIdConnectEndPoint.TokenEndpoint,
+                ClientId = "mvc",
+                ClientSecret = "secret",
+                Scope = "Api1",
+            });
 
             var client = new HttpClient();
-            client.SetBearerToken(tokenResponse.AccessToken);
-            var content = await client.GetStringAsync("http://localhost:5001/api/resource-without-policy");
+            client.SetBearerToken(accessToken.AccessToken);
+            // ApiResource
+            var content = await client.GetStringAsync("https://localhost:44383/api/resource-without-policy");
 
             return View("Json", content);
         }

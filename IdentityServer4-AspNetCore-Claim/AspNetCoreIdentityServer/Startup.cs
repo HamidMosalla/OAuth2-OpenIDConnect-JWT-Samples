@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AspNetCoreIdentityServer.Configurations;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreIdentityServer.Data;
 using AspNetCoreIdentityServer.Models;
 using AspNetCoreIdentityServer.Services;
+using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 
 namespace AspNetCoreIdentityServer
 {
@@ -27,6 +30,8 @@ namespace AspNetCoreIdentityServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            IdentityModelEventSource.ShowPII = true;
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -51,6 +56,7 @@ namespace AspNetCoreIdentityServer
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryPersistedGrants()
+                .AddInMemoryApiScopes(Config.GetApiScopes())
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
@@ -59,30 +65,54 @@ namespace AspNetCoreIdentityServer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-                app.UseDatabaseErrorPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
+            app.UseDatabaseErrorPage();
 
             app.UseStaticFiles();
 
-            // app.UseIdentity(); // not needed, since UseIdentityServer adds the authentication middleware
+            CreateDatabaseAndAddUser(app);
+
+            app.UseRouting();
+
+            //UseAuthentication not needed, since UseIdentityServer adds the authentication middleware
             app.UseIdentityServer();
 
-            app.UseMvc(routes =>
+            app.UseAuthorization();
+
+            app.UseEndpoints(opt =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                opt.MapDefaultControllerRoute();
             });
+        }
+
+        private static void CreateDatabaseAndAddUser(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
+
+                context.Database.Migrate();
+
+                if (context.Users.Any()) return;
+
+                var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+
+                var user = new ApplicationUser
+                {
+                    UserName = "mosalla@gmail.com",
+                    Email = "mosalla@gmail.com",
+                    EmailConfirmed = true,
+                };
+
+                userManager.CreateAsync(user, "123654").GetAwaiter().GetResult();
+
+                var claim = new Claim("Employee", "Mosalla");
+
+                userManager.AddClaimAsync(user, claim).GetAwaiter().GetResult();
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace IdentityServerAuthority
 {
@@ -10,14 +11,16 @@ namespace IdentityServerAuthority
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityServer()
-                    .AddDeveloperSigningCredential()
                     .AddInMemoryApiResources(Config.GetApiResources())
+                    .AddInMemoryIdentityResources(Config.GetIdentityResources())
                     .AddInMemoryClients(Config.GetClients())
                     .AddTestUsers(Config.GetUsers())
-                    .AddProfileService<ProfileService>();
+                    .AddInMemoryApiScopes(Config.GetApiScopes())
+                    .AddProfileService<ProfileService>()
+                    .AddDeveloperSigningCredential();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

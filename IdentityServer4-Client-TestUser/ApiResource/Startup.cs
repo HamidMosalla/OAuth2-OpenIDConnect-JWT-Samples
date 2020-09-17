@@ -17,15 +17,12 @@ namespace ApiResource
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore()
-                .AddAuthorization()
-                .AddJsonFormatters();
+            services.AddControllers();
 
             services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options =>
+                .AddIdentityServerAuthentication("Bearer", options =>
                 {
-                    options.Authority = "http://localhost:5000";
-                    options.RequireHttpsMetadata = false;
+                    options.Authority = "https://localhost:5000";
                     options.ApiName = "Api1";
                 });
 
@@ -33,11 +30,17 @@ namespace ApiResource
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseAuthentication();
+            app.UseDeveloperExceptionPage();
+            app.UseHttpsRedirection();
 
-            app.UseMvc();
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
     }
 }

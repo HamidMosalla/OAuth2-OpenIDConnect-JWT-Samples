@@ -24,24 +24,27 @@ namespace ApiResource
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore()
-                .AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")))
-                .AddJsonFormatters();
+                .AddAuthorization(options => options.AddPolicy("Founder", policy => policy.RequireClaim("Employee", "Mosalla")));
 
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.Authority = "http://localhost:5000";
-                    options.RequireHttpsMetadata = false;
+                    options.Authority = "https://localhost:44384/";
+                    options.RequireHttpsMetadata = true;
                     options.ApiName = "Api1";
                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseRouting();
+
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseAuthorization();
+
+            app.UseEndpoints(routes => routes.MapDefaultControllerRoute());
         }
     }
 }
